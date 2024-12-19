@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} AÑADIR VEHÍCULO {% endblock %}
+{% block content %} 
+    <h1>Ingrese los datos del Vehículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary bg-danger" >Añadir</button>
+    </form>
+{% endblock %}

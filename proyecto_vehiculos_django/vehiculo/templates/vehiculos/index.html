@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} VEHICULOS {% endblock %}
+
+{% block content %} 
+    <div>
+        <h2>Listado de Vehículos</h2>
+    </div>
+    <br>
+    <div>
+        <div class="container" style="text-align: center;">
+            <table class="table table-info table-hover table-bordered border-dark">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Serial Carroceria</th>
+                        <th>Serial Motor</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Condicion de Precio</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for vcl, cond in vehiculos %}
+                    <tr>
+                        <td>{{ vcl.marca }}</td>
+                        <td>{{ vcl.modelo }}</td>
+                        <td>{{ vcl.serial_carroceria}}</td>
+                        <td>{{ vcl.serial_motor }}</td>
+                        <td>{{ vcl.categoria }}</td>
+                        <td>{{ vcl.precio }}</td>
+                        <td>{{ cond }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" style="text-align: center; color:red">
+                            <h5>No hay productos disponibles</h5>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+
+{% endblock %}

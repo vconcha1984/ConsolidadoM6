@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} REGISTRO DE USUARIOS {% endblock %}
+
+{% block content %} 
+    <h2>Registrar usuario</h2>
+
+    <form class="form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" class="btn btn-secondary bg-gradient">Registrarse</button>
+        <br>
+        <a href="{% url 'login' %}">Iniciar Sesion</a>
+    </form>
+
+{% endblock %}
